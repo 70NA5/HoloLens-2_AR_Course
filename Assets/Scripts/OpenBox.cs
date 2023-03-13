@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class OpenBox : MonoBehaviour
-{
+public class OpenBox : MonoBehaviour {
     void Start() {}
 
     // Update is called once per frame
@@ -12,7 +11,7 @@ public class OpenBox : MonoBehaviour
 
     public void openRemoteBox() {
         Debug.Log("opening box");
-        StartCoroutine("http://10.158.41.69:3000/api/open");
+        StartCoroutine(getRequest("http://10.158.41.69:3000/api/open"));
     }
 
     IEnumerator getRequest(string uri) {
