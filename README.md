@@ -7,3 +7,7 @@ There are four documentations in this folder:
 - **Game Objects**: Brief description of the game object
 - **Mechanism**: Relevant technical descriptions of the project implementation
 - **Spatial Awareness**: Description of spatial awareness technology based on HoloLens MRTK.
+
+## Vuforia 
+The Project requires the Vuforia SDK package, which is too big for the git repo. 
+You can install the SDK by downloading [Vuforia Engine for Unity](https://developer.vuforia.com/downloads/sdk) and dragging the package into the Unity Editor.
