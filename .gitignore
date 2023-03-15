@@ -72,3 +72,50 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+Assets/Editor.meta
+Assets/Editor/Migration.meta
+Assets/Editor/Migration/AddVuforiaEnginePackage.cs
+Assets/Editor/Migration/AddVuforiaEnginePackage.cs.meta
+Assets/Samples.meta
+Assets/Samples/Shader Graph.meta
+Assets/Samples/Shader Graph/10.10.1.meta
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns.meta
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/.sample.json
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Bacteria.shadersubgraph
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Bacteria.shadersubgraph.meta
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/BacteriaSmoothstep.shadersubgraph
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/BacteriaSmoothstep.shadersubgraph.meta
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Brick.shadersubgraph
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Brick.shadersubgraph.meta
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Dots.shadersubgraph
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Dots.shadersubgraph.meta
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Grid.shadersubgraph
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Grid.shadersubgraph.meta
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Herringbone.shadersubgraph
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Herringbone.shadersubgraph.meta
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Hex Lattice.shadersubgraph
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Hex Lattice.shadersubgraph.meta
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Houndstooth.shadersubgraph
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Houndstooth.shadersubgraph.meta
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Smooth Wave.shadersubgraph
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Smooth Wave.shadersubgraph.meta
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Spiral.shadersubgraph
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Spiral.shadersubgraph.meta
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Stripes.shadersubgraph
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Stripes.shadersubgraph.meta
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Truchet.shadersubgraph
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Truchet.shadersubgraph.meta
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Whirl.shadersubgraph
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Whirl.shadersubgraph.meta
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Zig Zag.shadersubgraph
+Assets/Samples/Shader Graph/10.10.1/Procedural Patterns/Zig Zag.shadersubgraph.meta
+Assets/Shaders.meta
+Assets/Shaders/LaserBeam.shadersubgraph
+Assets/Shaders/LaserBeam.shadersubgraph.meta
+Packages/com.ptc.vuforia.engine-10.13.3.tgz
+Packages/manifest.json
+Packages/packages-lock.json
+ProjectSettings/ProjectSettings.asset
+Packages/manifest.json
+Packages/packages-lock.json
+ProjectSettings/ProjectSettings.asset
