@@ -6,14 +6,17 @@ using UnityEngine;
 
 public class ARPLaserStart : MonoBehaviour
 {
-    public Material mat1, mat2;
+    public Material mat1, mat2, mat3;
     ARPLaser beam;
     public bool laserActive;
     public Vector3 direction;
     public AudioSource laserSound;
+    Material matUsed;
+    
 
     void Start()
     {
+        matUsed = mat1;
         UnityEngine.Debug.Log(gameObject.transform.position);
     }
 
@@ -23,7 +26,7 @@ public class ARPLaserStart : MonoBehaviour
         if (laserActive)
         {
             Destroy(GameObject.Find("Laser Beam-" + gameObject.name));
-            beam = new ARPLaser(gameObject.transform.position, direction, mat1, mat2, gameObject.name, laserSound); 
+            beam = new ARPLaser(gameObject.transform.position, direction, matUsed, gameObject.name, laserSound); 
         }
         else
         {
@@ -82,5 +85,57 @@ public class ARPLaserStart : MonoBehaviour
                 //UnityEngine.Debug.Log("Activated Laser for: " + GameObject.Find("Portal2").name);
                 break;
         }
+    }
+
+    //Changes material input for laser
+    public void SwitchColor(string color)
+    {
+        switch (color)
+        {
+            case "red":
+                matUsed = mat1;
+                break;
+            case "green":
+                matUsed = mat2;
+                break;
+            case "blue":
+                matUsed = mat3;
+                break;
+        }
+    }
+
+    public void SwitchColorPortal(int portal, string color) {
+        if (portal == 1)
+        {
+            switch (color)
+            {
+                case "red":
+                    GameObject.Find("Portal1").GetComponent<ARPLaserStart>().SwitchColor("red");
+                    break;
+                case "green":
+                    GameObject.Find("Portal1").GetComponent<ARPLaserStart>().SwitchColor("green");
+                    break;
+                case "blue":
+                    GameObject.Find("Portal1").GetComponent<ARPLaserStart>().SwitchColor("blue");
+                    break;
+            }
+        }
+        else if (portal == 2)
+        {
+            switch (color)
+            {
+                case "red":
+                    GameObject.Find("Portal2").GetComponent<ARPLaserStart>().SwitchColor("red");
+                    break;
+                case "green":
+                    GameObject.Find("Portal2").GetComponent<ARPLaserStart>().SwitchColor("green");
+                    break;
+                case "blue":
+                    GameObject.Find("Portal2").GetComponent<ARPLaserStart>().SwitchColor("blue");
+                    break;
+            }
+        }
+        
+        
     }
 }

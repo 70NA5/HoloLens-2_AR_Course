@@ -16,6 +16,11 @@ TagManager:
   - PortalTest
   - Laser
   - Dummy
+  - Portal1
+  - Portal2
+  - Amp1
+  - Amp2
+  - Amp3
   layers:
   - Default
   - TransparentFX

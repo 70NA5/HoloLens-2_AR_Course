@@ -12,12 +12,12 @@ public class ARPLaser
     GameObject laserObj;
     LineRenderer laser;
     string pointerName;
-    Material mat1, mat2;
+    Material mat1;
     AudioSource laserSound;
     public GameObject laserTarget;
 
 
-    public ARPLaser(Vector3 pos, Vector3 dir, Material red, Material green, string name, AudioSource laserSound)
+    public ARPLaser(Vector3 pos, Vector3 dir, Material mat1, string name, AudioSource laserSound)
     {
         this.laser = new LineRenderer();
         this.pointerName = name;
@@ -26,15 +26,14 @@ public class ARPLaser
         this.laserObj.name = "Laser Beam-" + name;
         this.pos = pos;
         this.dir = dir;
-        this.mat1 = red;
-        this.mat2 = green;
+        this.mat1 = mat1;
         this.laserSound = laserSound;
         this.laserObj.tag = "Laser";
 
         this.laser = this.laserObj.AddComponent(typeof(LineRenderer)) as LineRenderer;
         this.laser.startWidth = 0.02f;
         this.laser.endWidth = 0.02f;
-        this.laser.material = red; // Set the initial material of the LineRenderer to pos
+        this.laser.material = mat1; // Set the initial material of the LineRenderer to pos
         this.laser.SetPosition(0, pos); // Set the initial position of the LineRenderer to pos
 
         // Set loop to true and play the sound
@@ -109,19 +108,56 @@ public class ARPLaser
                 laser.SetPosition(1, hitInfo.point);
                 //UnityEngine.Debug.Log("Hit object with tag: " + hitInfo.collider.gameObject.tag);
                 break;
-            case "AmpTest":
+            case "Amp1":
                 hitInfo.collider.gameObject.GetComponent<ARPLaserStart>().SetLaserActive(true);
+                hitInfo.collider.gameObject.GetComponent<ARPLaserStart>().SwitchColor("green");
+                //UnityEngine.Debug.Log("Hit object with tag: " + hitInfo.collider.gameObject.tag);
+                break;
+            case "Amp2":
+                hitInfo.collider.gameObject.GetComponent<ARPLaserStart>().SetLaserActive(true);
+                hitInfo.collider.gameObject.GetComponent<ARPLaserStart>().SwitchColor("blue");
                 //UnityEngine.Debug.Log("Hit object with tag: " + hitInfo.collider.gameObject.tag);
                 break;
             case "Portal1":
-                hitInfo.collider.gameObject.GetComponent<ARPLaserStart>().ActivateLaserStart("portal2");
-                //UnityEngine.Debug.Log("Activated Laser from: " + hitInfo.collider.gameObject.tag);
+                if (laserObj.name == "Laser Beam-Amp1")
+                {
+                    hitInfo.collider.gameObject.GetComponent<ARPLaserStart>().SwitchColorPortal(2, "green");
+                    hitInfo.collider.gameObject.GetComponent<ARPLaserStart>().ActivateLaserStart("portal2");
+                    //UnityEngine.Debug.Log("Activated Laser from: " + hitInfo.collider.gameObject.tag);
+                } else if (laserObj.name == "Laser Beam-Amp2")
+                {
+                    hitInfo.collider.gameObject.GetComponent<ARPLaserStart>().SwitchColorPortal(2, "blue");
+                    hitInfo.collider.gameObject.GetComponent<ARPLaserStart>().ActivateLaserStart("portal2");
+                    //UnityEngine.Debug.Log("Activated Laser from: " + hitInfo.collider.gameObject.tag);
+                } else
+                {
+                    hitInfo.collider.gameObject.GetComponent<ARPLaserStart>().ActivateLaserStart("portal2");
+                    //UnityEngine.Debug.Log("Activated Laser from: " + hitInfo.collider.gameObject.tag);
+                   
+                }
+
                 break;
             case "Portal2":
-                hitInfo.collider.gameObject.GetComponent<ARPLaserStart>().ActivateLaserStart("portal1");
-                //UnityEngine.Debug.Log("Activated Laser from: " + hitInfo.collider.gameObject.tag);
-                break;
+                if (laserObj.name == "Laser Beam-Amp1")
+                {
+                    hitInfo.collider.gameObject.GetComponent<ARPLaserStart>().SwitchColorPortal(1, "green");
+                    hitInfo.collider.gameObject.GetComponent<ARPLaserStart>().ActivateLaserStart("portal1");
+                    //UnityEngine.Debug.Log("Activated Laser from: " + hitInfo.collider.gameObject.tag);
+                }
+                else if (laserObj.name == "Laser Beam-Amp2")
+                {
+                    hitInfo.collider.gameObject.GetComponent<ARPLaserStart>().SwitchColorPortal(1, "blue");
+                    hitInfo.collider.gameObject.GetComponent<ARPLaserStart>().ActivateLaserStart("portal1");
+                    //UnityEngine.Debug.Log("Activated Laser from: " + hitInfo.collider.gameObject.tag);
+                }
+                else
+                {
+                    hitInfo.collider.gameObject.GetComponent<ARPLaserStart>().ActivateLaserStart("portal1");
+                    //UnityEngine.Debug.Log("Activated Laser from: " + hitInfo.collider.gameObject.tag);
 
+                }
+
+                break;
 
 
         }
