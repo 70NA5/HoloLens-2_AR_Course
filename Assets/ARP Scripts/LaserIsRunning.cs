@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Networking;
 
 public class LaserIsRunning : MonoBehaviour {
     private float nextActionTime = 0.0f;
     public float periodSeconds = 0.1f;
     public bool isStarted = false;
-    
+    public UnityEvent onChange;
+
     void Start() {}
 
     void Update () {
@@ -40,8 +42,12 @@ public class LaserIsRunning : MonoBehaviour {
                     Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
                     break;
                 case UnityWebRequest.Result.Success:
-                    isStarted = Result.CreateFromJSON(webRequest.downloadHandler.text).isStarted;
+                    bool newValue = Result.CreateFromJSON(webRequest.downloadHandler.text).isStarted;
+                    isStarted = newValue;
                     Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
+                    if (onChange != null && newValue != isStarted) {
+                        onChange.Invoke();
+                    }
                     break;
             }
         }
