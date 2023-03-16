@@ -76,6 +76,7 @@ public class ARPLaser
                 GameObject.Find("ScriptController").GetComponent<Test>().laserTargetPortal1.GetComponent<ARPLaserStart>().DeactivateLaserStart("portal2");
                 GameObject.Find("ScriptController").GetComponent<Test>().laserTargetPortal1 = GameObject.Find("Dummy");
 
+
              } else if (GameObject.Find("ScriptController").GetComponent<Test>().laserTargetPortal2 != GameObject.Find("Dummy"))
             {
 
@@ -166,7 +167,19 @@ public class ARPLaser
 
     void AsssignLaserTarget(GameObject laserHit)
     {
-        GameObject.Find("ScriptController").GetComponent<Test>().laserTargetPortal1 = laserHit;
+        if (laserHit.name == "ImageTarget2")
+        {
+            GameObject.Find("ScriptController").GetComponent<Test>().laserTargetPortal1 = laserHit.transform.GetChild(0).gameObject;
+        }
+        else if (laserHit.name == "ImageTarget1")
+        {
+            GameObject.Find("ScriptController").GetComponent<Test>().laserTargetPortal2 = laserHit.transform.GetChild(0).gameObject;
+        }
+        else
+        {
+
+            GameObject.Find("ScriptController").GetComponent<Test>().laserTargetPortal1 = laserHit;
+        }
     }
 
     void DeleteLaserTarget()

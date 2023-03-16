@@ -44,19 +44,19 @@ public class ARPLaserStart : MonoBehaviour
         switch (targetobject)
         {
             case "portal1":
-                GameObject.Find("Portal1").GetComponent<ARPLaserStart>().SetLaserActive(true);
+                GameObject.FindWithTag("Portal1").GetComponent<ARPLaserStart>().SetLaserActive(true);
                 //UnityEngine.Debug.Log("Activated Laser for: " + GameObject.Find("Portal2").name);
                 break;
             case "portal2":
-                GameObject.Find("Portal2").GetComponent<ARPLaserStart>().SetLaserActive(true);
+                GameObject.FindWithTag("Portal2").GetComponent<ARPLaserStart>().SetLaserActive(true);
                 //UnityEngine.Debug.Log("Activated Laser for: " + GameObject.Find("Portal2").name);
                 break;
             case "amp1":
-                GameObject.Find("Amp1").GetComponent<ARPLaserStart>().SetLaserActive(true);
+                GameObject.FindWithTag("Amp1").GetComponent<ARPLaserStart>().SetLaserActive(true);
                 //UnityEngine.Debug.Log("Activated Laser for: " + GameObject.Find("Portal2").name);
                 break;
             case "amp2":
-                GameObject.Find("Amp2").GetComponent<ARPLaserStart>().SetLaserActive(true);
+                GameObject.FindWithTag("Amp2").GetComponent<ARPLaserStart>().SetLaserActive(true);
                 //UnityEngine.Debug.Log("Activated Laser for: " + GameObject.Find("Portal2").name);
                 break;
         }
@@ -69,19 +69,19 @@ public class ARPLaserStart : MonoBehaviour
         switch (targetobject)
         {
             case "portal1":
-                GameObject.Find("Portal1").GetComponent<ARPLaserStart>().SetLaserActive(false);
+                GameObject.FindWithTag("Portal1").GetComponent<ARPLaserStart>().SetLaserActive(false);
                 //UnityEngine.Debug.Log("Activated Laser for: " + GameObject.Find("Portal2").name);
                 break;
             case "portal2":
-                GameObject.Find("Portal2").GetComponent<ARPLaserStart>().SetLaserActive(false);
+                GameObject.FindWithTag("Portal2").GetComponent<ARPLaserStart>().SetLaserActive(false);
                 //UnityEngine.Debug.Log("Activated Laser for: " + GameObject.Find("Portal2").name);
                 break;
             case "amp1":
-                GameObject.Find("Amp1").GetComponent<ARPLaserStart>().SetLaserActive(false);
+                GameObject.FindWithTag("Amp1").GetComponent<ARPLaserStart>().SetLaserActive(false);
                 //UnityEngine.Debug.Log("Activated Laser for: " + GameObject.Find("Portal2").name);
                 break;
             case "amp2":
-                GameObject.Find("Amp2").GetComponent<ARPLaserStart>().SetLaserActive(false);
+                GameObject.FindWithTag("Amp2").GetComponent<ARPLaserStart>().SetLaserActive(false);
                 //UnityEngine.Debug.Log("Activated Laser for: " + GameObject.Find("Portal2").name);
                 break;
         }
