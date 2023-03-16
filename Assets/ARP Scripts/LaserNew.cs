@@ -52,6 +52,10 @@ public class LaserNew {
                 origin = GameObject.FindWithTag("Portal1").transform.position;
                 addLaserSegment(origin, dir, this.currentMaterial, depth);
                 break;
+            case "Mirror":
+                this.currentMaterial = mat1;
+                addLaserSegment(hitInfo.point, hitInfo.normal, this.currentMaterial, depth);
+                break;
         }
     }
 

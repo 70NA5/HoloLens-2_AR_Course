@@ -1,43 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Networking;
 
-public class ARPLaserStart : MonoBehaviour
-{
-    public Material mat1, mat2;
-    public bool laserActive;
-    public Vector3 direction;
-    public AudioSource laserSound;
+public class LaserRunning : MonoBehaviour {
     private float nextActionTime = 0.0f;
     public float periodSeconds = 0.1f;
-    LaserNew beam;
+    public bool isStarted = false;
+    public UnityEvent onChange;
 
     void Start() {}
 
-    void Update(){
-        if (laserActive) {
-            Destroy(GameObject.Find("Laser Beam"));
-            beam = new LaserNew(gameObject.transform.position, direction, mat1, mat2); 
-        } else {
-            Destroy(GameObject.Find("Laser Beam"));
-        }
-
+    void Update () {
         if (Time.time > nextActionTime ) {
             nextActionTime = Time.time + periodSeconds;
-            // TODO: Activate to use laser start from server
-            // checkLaserRunning();
+            check();
         }
     }
 
-    public void SetLaserActive(bool input) {
-        laserActive = input;
-    }
-
-
-    private void checkLaserRunning() {
+    public void check() {
         StartCoroutine(getRequest("http://192.168.1.1:3000/api/isStarted"));
     }
 
@@ -61,22 +43,13 @@ public class ARPLaserStart : MonoBehaviour
                     break;
                 case UnityWebRequest.Result.Success:
                     bool newValue = Result.CreateFromJSON(webRequest.downloadHandler.text).isStarted;
-                    if (newValue != laserActive) {
-                        laserActive = newValue;
-                    }                    
+                    isStarted = newValue;
+                    Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
+                    if (onChange != null && newValue != isStarted) {
+                        onChange.Invoke();
+                    }
                     break;
             }
         }
-    }
-}
-
-[System.Serializable]
-class Result
-{
-    public bool isStarted;
-
-    public static Result CreateFromJSON(string jsonString)
-    {
-        return JsonUtility.FromJson<Result>(jsonString);
     }
 }
